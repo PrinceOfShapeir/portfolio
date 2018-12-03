@@ -9,9 +9,51 @@
   </head>
   <body>
 	  
-	  <p>
+	  <p>Tic Tac Toe
+	  <br>
 	  
 	  <a href="https://battletoes.firebaseapp.com/">Tic Tac Toe</a>
+	  
+	  This game features persistent stat tracking as well as file upload
+	  and download.
+	  
+	  The AI is a perceptron based multi-layer neural network. As Tic Tac Toe 
+	  is a perfect information game, it is not necessary for the AI to have 
+	  memory. Nevertheless, the user will notice rapidly changing
+	  behavior, starting from the first game onward. The hidden neural layer
+	  accumulates affinities to certain combinations. The purpose of this
+	  approach is to demonstrate that TTT is solveable through pure pattern
+	  recognition. It is a prime candidate given the problem has a proven,
+	  mathematical solution. To ensure the blindness of the trial, neither
+	  the network nor the programmer have seen a known solution, to prevent
+	  its accidental introduction into the training algorithm.
+	  
+	  Initial training involves a positive reinforcement cycle on known
+	  winning combinations, and a negative reinforcement cycle on random
+	  recombinations. The random component introduces fluctuations into the
+	  network affinity, which can be assessed experimentally. The testing
+	  phase involves a series of one to one matchups, of which only one
+	  player survives to the next match. After a player has defeated a 
+	  certain number of opponents, it is saved and uploaded to our server. 
+	  All AI instances in the database will have undergone this training.
+	  
+	  User interaction is a vital component of the next phase in training.
+	  When a new user loads a fresh AI off our server, it begins training
+	  immediately, and assuming the human player is a good one, it will
+	  improve. The users themselves are encouraged to direct such training
+	  as they see fit, provided they don't edit values directly. At the
+	  end of a cycle, users may submit their trained networks to a tournament
+	  style battle royale, which selects the default AI for the next cycle.
+	  
+	  The King is Dead, Long Live The New King.
+	  
+	  The overarching goal is to find the combination involving the least 
+	  neurons and the best performance. This is in keeping with the Least 
+	  Intelligence Pledge, which states that no AI should be developed with 
+	  intelligence beyond that required for minimum functionality.
+	  
+	  The process could go on forever, and the training methodology could 
+	  be applied to any pattern recognition network.
 	  
 	  </p>
 	  
