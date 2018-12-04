@@ -1,0 +1,32 @@
+function titleCase(str) {
+
+
+  //console.log(str);
+//console.log(str.length);
+ // for(let i = 0; i<str.length; i++){
+
+//if(/\b\[a-z]/.test(str[i])){
+//  let reg = new RegExp(/^|\b([a-z])/g);
+
+  str = str.toLowerCase().replace(/(^|\s)([a-z])/g, function(m, m1,m2){
+    //console.log(m3);
+    return m1 + m2.toUpperCase()  /* + m3.toLowerCase()*/;
+    });
+console.log(str);
+return str;
+//let m = reg.match(str);
+//console.log(m);
+  //str[i].replace(m,m.toUpperCase());
+ // console.log("did");
+  
+  //}
+
+  //}
+
+  //console.log(str.toString().replace(/,/g, " "));
+
+
+
+}
+
+titleCase("HERE IS MY HANDLE HERE IS MY SPOUT");
