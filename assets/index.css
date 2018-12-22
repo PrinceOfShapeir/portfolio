@@ -1,3 +1,38 @@
 img {
 	float: left;
+	left: 0px;
+}
+.topnav {
+
+color: red;
+
+}
+
+.background {
+
+	position: relative;
+	
+	width= 100%;
+	
+	}
+	
+.first{
+}
+mark{
+background-image: linear-gradient(rgb(251, 212, 111),
+rgb(241, 222, 7));
+color: black;
+}
+
+.second {
+
+
+}
+	
+body {
+	
+	position: absolute;
+	top: 50px;
+	left: 10px;
+	width: 95%;
 }
