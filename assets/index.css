@@ -1,3 +1,9 @@
+
+:root {
+	--topnav-justify: top;
+	--
+}
+
 img {
 	float: left;
 	left: 0px;
@@ -5,14 +11,19 @@ img {
 .topnav {
 
 color: red;
+align-self: var(--topnav-justify);
 
+}
+.welcome-section {
+
+	height: 100vh;
 }
 
 .background {
 
 	position: relative;
 	
-	width= 100%;
+	width : 100%;
 	
 	}
 	
@@ -36,3 +47,10 @@ body {
 	left: 10px;
 	width: 95%;
 }
+
+@media (){
+	:root {
+		--topnav-justify: top;
+	}
+}
+
