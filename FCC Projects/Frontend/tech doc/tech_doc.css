@@ -1,0 +1,25 @@
+#navbar {
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 20%;
+  position: fixed;
+  height: auto;
+}
+.wrapper{
+
+}
+@media (max-width: 100px){
+  body{
+
+  }
+}
+
+header {
+  font-weight: bold;
+}
+
+main{
+  
+  padding-left: 15%;
+}

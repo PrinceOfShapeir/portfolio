@@ -1,0 +1,195 @@
+
+<html>
+  <div class="wrapper">
+	<nav id="navbar">
+    <header>Counting Numbers</header>
+    <a class="nav-link" href="#How_To_Binary">How To Binary</a>
+    <br>
+    <a class="nav-link" href="#Counting_Additional_Numbers">Counting Additional Numbers</a>
+    <br>
+    <a class="nav-link" href="#Trinary">Trinary</a>
+    <br>
+    <a class="nav-link" href="#Quaternary">Quaternary</a>
+    <br>
+    <a class="nav-link" href="#Other_Number_Bases">Other Number Bases</a>
+		
+	</nav>
+	<main id="main-doc">
+	
+		<section class="main-section" id="How_To_Binary">
+		<header>How To Binary</header>
+      
+      
+      <header>Simple Counting</header><br>
+	<p>
+
+    <code></code>
+    The reason we learn binary is because everyone is already using it.
+	It's not so hard as you think.</p>
+	<br>
+	<p>
+	Let's take a look at the number 268. It has three places and no 
+	decimal. If we say that 1 indicates the presence of a digit at the 
+	place, then the sequence 111 would indicate a number has three 
+	digits. Under a Simple Counting model, all you'd have to do is 
+	repeat the pattern a maximum of 8 times (8 is the highest digit), for the 
+	following sequence: <br>
+	</p>
+	
+	<p>
+		<ul>
+			
+			<li>001</li>
+			<li>001</li>
+			<li>011</li>
+			<li>011</li>
+			<li>011</li>
+			<li>011</li>
+			<li>111</li>
+			<li>111</li>
+			<li>268</tl>
+			</ul>
+	</p>
+	<p>
+	Simple, right? Yet also very tedious. What we are looking for is a 
+    more compact way of expressing numbers. One way of doing this is multiplicative.
+ 
+    
+    <header>Battery Model</header>
+    <br>
+    <p>
+	What we have here is battery, and that battery will store avalue for you, 
+	but you have to charge it up, starting from right to left.  
+    </p>
+	<br><p>
+	The first bit on the right should be 1. If it isn't 1 then you have 
+    0. Simple, right? Let's skip on to 2.</p>
+	
+	<br><p>
+	The second bit on the right stores 2^1, which is just 2. So 
+	what can we do? Let's see what happens when we put 1 in the 
+    two-place. </p>
+	
+	<ul>
+		
+		<li>11</li>
+		<li>2+1=3</li>
+    </ul>
+		Oh no. 2 + 1 is not 2, but 3. But, we know where the extra 1 is. 
+		It's in the 1 place. We just delete that. Now our 2 bit number 
+		looks like this: <br>
+		
+		<table>
+			<tr>10
+				</tr>
+				<tr>=2<tr>
+				</table>
+				<br>
+		2 plus 0 equals 2. We are now smart enough to count to 2. Yay. 
+		And if we put the 1 back, we can also count to 3.
+		<br>
+  
+    
+      <header>Counting To 4</header>
+		<br>
+		Since 4>3, we need to add another bit. The third bit has the 
+		value of 2^2 or 2*2, which if you might be wondering equals 4. 
+		We're already done. Just put 1 in the 3-place.
+		<br>
+		<table>
+			<tr>100</tr>
+			<tr>2^2=4</tr>
+			</table>
+	<br>
+	Since we know how to count to 3, we can just add that to make any 
+	number up to 7.
+	</p>
+  </section>
+  <section class="main-section" id="Counting_Additional_Numbers">
+	
+	<header>Counting Additional Numbers</header>
+    <br>
+	<p>
+	   <code></code>
+	Now remember when you learned powers of 2 in school? I don't 
+	either. Remember to write to your local dignitary, capo chief, 
+	member of congress, member of parliament, communist party chair 
+	(don't do this, this is actually a bad idea), village elder, or 
+    shaman, to complain. </p>
+	<br><p>
+	Fortunately there's only eight of them in an 8 bit binary, so 
+	you only have to memorize 8, or 5 assuming you got the last three. 
+	You have to memorize five numbers. I am deeply and truly sorry. As 
+    a way of apology, I have provided the 2 times table. </p>
+    <br>
+	
+	<table>
+		
+    <tr><td>2^1 = 2</td>
+		<td>2-place</td> </tr>
+    <tr><td>2^2 = 4</td>	  <td>3-place</td></tr>
+    <tr><td>2^3 = 8</td> 		<td>4-place</td></tr>
+    <tr><td>2^4 = 16</td> 	<td>5-place</td></tr>
+    <tr><td>2^5 = 32</td> 	<td>6-place</td></tr>
+    <tr><td>2^6 = 64</td>	  <td>7-place</td></tr>
+    <tr><td>2^7 = 128</td> 	<td>8-place</td></tr>
+    <tr><td>2^8 = 256</td>  <td>9-place</td></tr>
+    <tr><td>2^9 = 512</td> 	<td>10-place</td></tr>
+		</table>
+		<br>
+		
+		
+	
+	</section> 
+
+<section class="main-section" id="Trinary">
+	<header>Trinary</header>
+     <code></code>
+  <br>
+  <b>AKA Ternary</b>
+  <br>
+  <p>Trinary is the closest whole number base to the natural log, <em>e</em>. There are different types:
+  </p>
+    <br>
+    <b>Balanced Trinary</b>
+    <br>
+  <p>
+    In balanced, there is an additional number, -1. One way to count is to simply pretend that it's still binary, with a negative sign. This saves a sign place. Simply make the leftmost nonzero place negative.
+    
+  </p>
+  <p>So far so good. We saved a place and haven't yet used the real powers of three. As Pythagoras famously discovered, the numbers one through ten in a series can be arranged into a triangle, or tetractys, as it was called. Therefore the number ten can be expressed with three trits: 101, the leftmost is equal to 3*3, ie. 9, and the rightmost is always equal to 1. The same number in binary is 1010, which requires four bits to express. 
+    
+  </p>
+  <p>What about the negative? It's best to think of the sign as being evaluated after the exponent, for each individual trit, aside from the leftmost trit which denotes the sign of the entire number. Any additional signs to the right can be thought of as additive and subtractive. Take for example the number 8. If we fill the 1st place, we get 1, if we fill the 2nd place, we get 4 (in total), and the 3rd place has a value of 9 (=13 total). But with the magic of negativity we can make the 1 into -1, the 3 into 0, and the 9 can stay, as 9-1 = 8, the final sequence becomes 10(-1). As you can see this gives us a good deal of flexibility with larger numbers, we can round up, and then subtract as needed; it's generally much easier to write 100000 - 3 than to write 999997. With binary you only have the latter option.</p>
+</section>
+
+<section class="main-section" id="Quaternary">
+	<header>Quaternary</header>
+     <code></code>
+	
+	<p>
+		Quaternary is an extremely useful number system to learn for 
+		the sole reason that the nucleotide sequences in DNA 
+		are in base-four. Incidentally, base-four is the third closest 
+		whole number base to <em>e</em>. You might be noticing this convergence is less than coincidence. 
+	</p>
+  
+  <p>As unfortunately the intersection between geneticists and fundamenthal mathematicians is quite small, I don't want to assign an arbitrary mapping of the likely sequence 0,1,2,3 to any of the bases GATC, unless someone wishes to provide me with this information at the following email: somethingfarley@gmail.com</p>
+	    </section>
+
+<section class="main-section" id="Other_Number_Bases">
+  
+  <header>Other Number Bases</header>
+     <code></code>
+  <p>We employ other number bases when locally convenient. Base-ten is employed for its precise and readable least significant digits. After the sixth or so power, it becomes unwieldy.</p>
+  
+ <br>
+  <b>|MMCCCXLVI| XXII CXXIII</b>
+  <p><em>Above: An attempt to transcribe numbers in the base known as "ten." I know. I can't read it either.</em></p>
+  <br>
+
+</section>
+</main>
+</div>
+	</html>
+
