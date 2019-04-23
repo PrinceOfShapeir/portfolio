@@ -1,0 +1,7 @@
+let name = process.argv.slice(2);
+let nameEmail = {
+    username: name[1],
+    email: name[2]
+};
+
+console.log(nameEmail);

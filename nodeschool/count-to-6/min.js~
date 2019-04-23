@@ -1,0 +1,4 @@
+
+var args = process.argv.slice[2];
+var list = Math.min(...args);
+console.log(`The minimum of [${args}] is ${list}`);

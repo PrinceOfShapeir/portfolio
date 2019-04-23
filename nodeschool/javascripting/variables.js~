@@ -1,0 +1,2 @@
+var example = "something";
+console.log(example);
