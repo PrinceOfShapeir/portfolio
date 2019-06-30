@@ -51,7 +51,29 @@ function move (a,b) {
 	
 }
 
-function game(boardState, playerToMove) = {
+function check (boardState, PlayerToMove){
+	
+	let check = "condition"; //player in check
+	if(check){
+		
+		return winCheck(boardState, PlayerToMove);
+	}
+	else if(/*moves!=0*/) return game(boardState, playerToMove, true);
+	
+}
+
+
+function winCheck (boardState, playerToMove) {
+	
+	//check for win
+	if(win) {
+		
+		return console.log("game over " + playerToMove + " wins" );
+	}
+	else return game(boardState, playerToMove, true);
+	
+}
+function game(boardState, playerToMove, check) = {
 	
 	
 	move(decision());
