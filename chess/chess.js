@@ -2,7 +2,7 @@
 
 const Board = new Array(64).fill(0);
 
-const Piece = {
+function Piece (color) = {
 	
 	this.color,
 	this.moveMap,
@@ -12,7 +12,7 @@ const Piece = {
 
 const Pawn extends Piece {
 	
-	this.moveMap = 3;
+	this.moveMap = 4;
 	//movemap is a sanity check, will never have more valid moves than this
 }
 

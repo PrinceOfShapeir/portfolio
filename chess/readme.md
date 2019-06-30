@@ -11,7 +11,7 @@ Each type will have its own dedicated subnet. The moving piece will be chosen ac
 
 
 
-Base case: At start, each pawn has a single possible output, 1. To simplify, feed all 8 possible moves into the Pawn Calculator, and choose the pawn with the highest RAT. The RAT of the highest pawn will be compared with the highest knight, and so forth.
+Base case: At start, each pawn has two possible outputs. To simplify, feed all 16 possible moves into the Pawn Calculator, and choose the pawn with the highest RAT. The RAT of the highest pawn will be compared with the highest knight, and so forth.
 
 Counter calculation will employ same method to analyze opponent's reaction. This will update the decision matrices until an equilibrium is reached, when the best counter move no longer changes the initial move.
 
