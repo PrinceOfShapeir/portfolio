@@ -1,0 +1,149 @@
+
+
+function sym(...args){
+
+  let carry = compareTwo(args[0], args[1]);
+  console.log(carry);
+  for (let i = 2;i<args.length;i++){
+  console.log(args[i]);
+
+  carry = compareTwo(carry,args[i]);
+  }
+
+  return carry;
+
+
+
+
+}
+
+
+function compareTwo(...args) {
+
+//console.log(args);
+let result = args.flat();
+let badlist = [];
+let goodlist = [];
+
+for(let i in args){
+
+  for (let j in args[i]){
+
+    for(let z in args){
+      
+      if (z!=i){
+
+        if(args[z].includes(args[i][j])){
+          badlist.push(args[i][j]);
+          break;
+        }
+      }
+
+    }
+
+
+    
+
+  }
+
+}
+for (let i in result){
+
+  if (!badlist.includes(result[i])&&!goodlist.includes(result[i])){
+
+    goodlist.push(result[i]);
+
+  }
+}
+
+
+  return goodlist;
+}
+
+sym([1, 2, 5], [2, 3, 5], [3, 4, 5]);
+
+
+/*
+
+function compareTwo(...twos){
+  badlist = [];
+  let goodlist = [];
+  let all = twos.flat();
+  for(let i in twos[0]){
+    if(!badlist.includes(twos[0][i])){
+     if(twos[1].includes(twos[0][i])){
+        badlist.push(twos[0][i]);
+      }
+    }
+  }
+
+  for(let i in twos[1]){
+
+  if(!badlist.includes(twos[1][i])){
+     if(twos[0].includes(twos[1][i])){
+        badlist.push(twos[1][i]);
+      }
+    }
+  }
+  for (let i in all){
+
+    if(!badlist.includes(all[i])&&!goodlist.includes(all[i])){
+
+      goodlist.push(all[i]);
+    }
+  }
+  return goodlist;
+  }
+
+*/
+
+
+
+
+
+
+//below returns the absolute difference instead of the symmetric difference
+
+/*function sym(...args) {
+
+console.log(args);
+let result = args.flat();
+let badlist = [];
+let goodlist = [];
+
+for(let i in args){
+
+  for (let j in args[i]){
+
+    for(let z in args){
+      
+      if (z!=i){
+
+        if(args[z].includes(args[i][j])){
+          badlist.push(args[i][j]);
+          break;
+        }
+      }
+
+    }
+
+
+    
+
+  }
+
+}
+for (let i in result){
+
+  if (!badlist.includes(result[i])&&!goodlist.includes(result[i])){
+
+    goodlist.push(result[i]);
+
+  }
+}
+
+
+  return goodlist;
+}
+
+console.log(sym([1, 2, 5], [2, 3, 5], [3, 4, 5]));*/
