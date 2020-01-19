@@ -6,6 +6,7 @@
 @media (max-width 1000){
 	:root {
 		--color: red;
+		
 	}
 }
 
@@ -15,9 +16,10 @@ top: 0;
 
 color: red;
 }
-img {
+img {/*
 	float: left;
-	left: 0px;
+	left: 0px;*/
+	vertical-align: bottom;
 }
 
 #welcome-section {
