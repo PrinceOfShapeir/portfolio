@@ -9,5 +9,5 @@ if(before[0]===before[0].toUpperCase()){
 }
 else afterFirst = after[0].toLowerCase();
 
-  return str.replace(before, afterFirst+ afterLast);
+  return str.replace(before, afterFirst + afterLast);
 }
