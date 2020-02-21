@@ -1,0 +1,13 @@
+function myReplace(str, before, after) {
+  
+  
+  let afterFirst = after[0];
+  let afterLast = after.slice(1,after.length);
+if(before[0]===before[0].toUpperCase()){
+ 
+  afterFirst = after[0].toUpperCase();
+}
+else afterFirst = after[0].toLowerCase();
+
+  return str.replace(before, afterFirst+ afterLast);
+}
