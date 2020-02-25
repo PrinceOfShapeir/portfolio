@@ -1,0 +1,37 @@
+var Person = function(firstAndLast) {
+  // Complete the method below and implement the others similarly
+  if(typeof(firstAndLast)!="string"){
+    return undefined;
+  }
+
+  let array = firstAndLast.split(" ");
+  let firstName = array[0];
+  let lastName = array[1];
+  this.getFullName = function() {
+    return firstName + " " + lastName;
+  };
+  this.getFirstName = function(){
+    return firstName;
+  }
+  this.getLastName = function(){
+    return lastName;
+  }
+  this.setFirstName = function(input){
+    firstName = input;
+  }
+  this.setLastName = function(input){
+    lastName = input;
+  }
+  this.setFullName = function(input){
+    let array = input.split(" ");
+    lastName = array[1];
+    firstName = array[0];
+  }
+
+
+
+  return firstAndLast;
+};
+
+var bob = new Person('Bob Ross');
+bob.getFullName();
