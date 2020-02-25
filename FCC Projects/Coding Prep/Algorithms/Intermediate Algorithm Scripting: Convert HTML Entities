@@ -1,0 +1,44 @@
+function convertHTML(str) {
+  // &colon;&rpar;
+
+/*
+let newStr = str.split("");
+let outStr = "";*/
+
+//for(let i in newStr){
+
+
+/*
+switch(newStr[i]){
+
+  case "&":
+  outStr.concat("&amp;");
+  break;
+  case "<":
+  outStr.concat("&lt;");
+  break;
+  case ">":
+  outStr.concat("&gt;");
+  break;
+  case '"':
+  outStr.concat("marks&quot;");
+  break;
+  case "'":
+  outStr.concat("&apos;");
+  break;
+  default:
+  outStr.concat(newStr[i]);
+  break;
+}*/
+
+//}
+
+
+
+  return str;
+}
+
+convertHTML("Dolce & Gabbana");
+
+
+
