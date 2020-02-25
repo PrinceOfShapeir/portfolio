@@ -1,0 +1,15 @@
+function truthCheck(collection, pre) {
+  // Is everyone being true?
+for(let i in collection){
+//console.log(collection[i][pre]==true);
+if(!collection[i][pre]){
+
+return false;
+}
+}
+  return true;
+
+}
+
+console.log(truthCheck([{"single": "yes"}], "single"));
+
