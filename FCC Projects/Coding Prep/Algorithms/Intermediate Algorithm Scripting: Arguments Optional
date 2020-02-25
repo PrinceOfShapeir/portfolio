@@ -1,0 +1,28 @@
+function addTogether(a,b) {
+
+  if(a){
+    
+  if(typeof(a)!="number"){
+
+    return undefined;
+  }
+  if(b){
+    
+    if(typeof(b)!="number"){
+      console.log("b is")
+      return undefined;
+    }
+  else return a + b;
+  }
+
+  else return function(c){
+
+    return addTogether(a,c);
+  }
+
+
+  }
+  //return false;
+}
+
+console.log(addTogether(2)(3));
