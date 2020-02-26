@@ -1,0 +1,36 @@
+function steamrollArray(arr) {
+  // I'm a steamroller, baby
+let newArr = [];
+
+//not 100% recursive as it does not return anything
+//will push anything that is not an array to newArr
+//will call itself repeatedly until above condition satisfies
+function poundArray (array){
+
+  if(Array.isArray(array)){
+    
+    for(let i in array){
+    if(Array.isArray(array[i])){
+      console.log("pounding " + array[i]);
+      poundArray(array[i]);
+    }
+      else {
+        console.log("pushing " + array[i]);
+        
+        newArr.push(array[i]);
+      }
+    }
+  }
+  else newArr.push(array);
+}
+//actual business here, make a single shallow loop
+for(let i in arr){
+
+poundArray(arr[i]);
+}
+
+
+  return newArr;
+}
+
+console.log(steamrollArray([1, [2]]));
