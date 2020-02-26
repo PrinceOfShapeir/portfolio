@@ -1,0 +1,13 @@
+function dropElements(arr, func) {
+  // Drop them elements.
+  if(func(arr[0])){
+    return arr;
+  }
+  else if(arr.length>0){
+  arr.shift();
+  return dropElements(arr,func);
+  }
+  else return arr;
+}
+
+dropElements([1, 2, 3], function(n) {return n < 3; });
