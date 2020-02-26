@@ -1,44 +1,43 @@
 function convertHTML(str) {
   // &colon;&rpar;
 
-/*
+
 let newStr = str.split("");
-let outStr = "";*/
+let outStr = "";
 
-//for(let i in newStr){
+for(let i in newStr){
 
 
-/*
+
 switch(newStr[i]){
 
   case "&":
-  outStr.concat("&amp;");
+ // console.log("found an &");
+  outStr = outStr.concat("&amp;");
+ // console.log(outStr);
   break;
   case "<":
-  outStr.concat("&lt;");
+  outStr = outStr.concat("&lt;");
   break;
   case ">":
-  outStr.concat("&gt;");
+  outStr = outStr.concat("&gt;");
   break;
   case '"':
-  outStr.concat("marks&quot;");
+  outStr = outStr.concat("&quot;");
   break;
   case "'":
-  outStr.concat("&apos;");
+  outStr = outStr.concat("&apos;");
   break;
   default:
-  outStr.concat(newStr[i]);
+  outStr = outStr.concat(newStr[i]);
   break;
-}*/
-
-//}
-
-
-
-  return str;
 }
 
-convertHTML("Dolce & Gabbana");
+}
 
 
 
+  return outStr;
+}
+
+console.log(convertHTML('Stuff in "quotation marks"'));
