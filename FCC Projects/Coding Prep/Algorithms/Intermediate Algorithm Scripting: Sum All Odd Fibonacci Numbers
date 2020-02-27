@@ -1,0 +1,28 @@
+function sumFibs(num) {
+  let oddFibs = [1,1];
+
+  for(let a = 1, b = 1;b<=num;){
+  if(a+b<=num){
+    //console.log("this")
+    let c = a;
+    a = b;
+    b = c + b;
+    if(b<=num&&b%2!=0){
+      oddFibs.push(b);
+      //console.log(oddFibs);
+    }
+    //console.log(b);
+
+  }
+  else break;
+  }
+
+
+  return oddFibs.reduce((x,y)=>{
+
+    return x + y
+
+  }, 0);
+}
+
+console.log(sumFibs(75025));
