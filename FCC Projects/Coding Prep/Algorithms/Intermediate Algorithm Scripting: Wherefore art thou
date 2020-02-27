@@ -1,0 +1,28 @@
+//solves the single input case
+function whatIsInAName(collection, source) {
+  // What's in a name?
+  var arr = [];
+
+  let key = Object.keys(source)[0];
+  // Only change code below this line
+  for (let i in collection){
+
+    if(key in collection[i]){
+
+      if(collection[i][key]===source[key]){
+
+      arr.push( collection[i]);
+      }
+    }
+        
+      }
+
+    
+    
+  
+
+  // Only change code above this line
+  return arr;
+}
+
+console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }));
