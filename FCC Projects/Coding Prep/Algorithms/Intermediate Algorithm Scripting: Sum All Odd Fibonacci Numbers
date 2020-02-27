@@ -1,5 +1,5 @@
 function sumFibs(num) {
-  let oddFibs = [1,1];
+  let oddFibs = 2;
 
   for(let a = 1, b = 1;b<=num;){
   if(a+b<=num){
@@ -8,7 +8,7 @@ function sumFibs(num) {
     a = b;
     b = c + b;
     if(b<=num&&b%2!=0){
-      oddFibs.push(b);
+      oddFibs+=b;
       //console.log(oddFibs);
     }
     //console.log(b);
@@ -18,11 +18,7 @@ function sumFibs(num) {
   }
 
 
-  return oddFibs.reduce((x,y)=>{
-
-    return x + y
-
-  }, 0);
+  return oddFibs;
 }
 
 console.log(sumFibs(75025));
