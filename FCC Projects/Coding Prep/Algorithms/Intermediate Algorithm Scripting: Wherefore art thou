@@ -1,28 +1,49 @@
-//solves the single input case
 function whatIsInAName(collection, source) {
   // What's in a name?
   var arr = [];
-
-  let key = Object.keys(source)[0];
+  let keys = Object.keys(source);
   // Only change code below this line
-  for (let i in collection){
+  function matches (a, s, s1) {
 
-    if(key in collection[i]){
+    for(let i in s){
 
-      if(collection[i][key]===source[key]){
-
-      arr.push( collection[i]);
+      if(!(s[i] in a)){
+        return false;
       }
+      //found a match, look for multimatches
+      else {
+
+        for(let z in a){
+          if(z in s1){
+            console.log("it's in there")
+          if(a[z]!=s1[z]){
+            return false;
+          }
+          }
+        }
+      }
+
     }
-        
-      }
 
-    
-    
-  
+    return true;
+
+
+  }
+
+
+  for(let x in collection){
+
+    if(matches(collection[x], keys, source)){
+
+      arr.push (collection[x]);
+    }
+  }
+
+
+
 
   // Only change code above this line
   return arr;
 }
 
-console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }));
+console.log(whatIsInAName([{"a": 1, "b": 2, "c": 3}], {"a": 1, "b": 9999, "c": 3}));
