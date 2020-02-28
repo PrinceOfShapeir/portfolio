@@ -1,28 +1,25 @@
 function sumDigits(n) {
   // Good luck!
+let array = n.split("");
 let sum = 0;
-let num = 0;
-if(/[a-zA-z]/.test(n)){
-  let array = n.split("");
-  for(let i in array){
-  sum += parseInt(array[i],16)
+for(let i in array){
+
+  if(/[a-zA-z]/.test(array[i])){
+    sum += parseInt(array[i], 16);
+    console.log(parseInt(array[i], 16));
+    console.log(array[i]);
+    //console.log(sum);
   }
-}
-else{
-  num = parseInt(n);
-  num = num.toString().split("");
-for(let i in num){
-  sum += Number(num[i]);
-}
-
+  else {
+    sum += parseInt(array[i]);
+  }
 
 }
-console.log(num);
+
+return sum;
 
 
 
-console.log(sum);
-return sum
 
 }
-sumDigits("f0e");
+console.log(sumDigits("XYZ"))
