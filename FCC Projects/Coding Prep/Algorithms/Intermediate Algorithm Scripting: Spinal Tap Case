@@ -1,0 +1,30 @@
+function spinalCase(str) {
+  // "It's such a fine line between stupid, and clever."
+  // --David St. Hubbins
+  let newArr = str.split("");
+  let regs = /_|-|\s/;
+  let output = "";
+  for(let i = 0; i<newArr.length;i++){
+    if(regs.test(newArr[i])){
+    output = output.concat("-");
+    }
+    else if(/[A-Z]/.test(newArr[i])){
+    if(output.length<1){
+      //do nothing
+      output = newArr[i].toLowerCase();
+      //console.log(output)
+    }
+    else if(output.slice(-1)=="-") {
+      output = output.concat(newArr[i].toLowerCase());
+
+    }
+    else output = output.concat("-",newArr[i].toLowerCase());
+ 
+    }
+    
+    else output = output.concat(newArr[i].toLowerCase());
+  }//get rid of the last -
+  return output;
+}
+
+console.log(spinalCase("This Is Spinal Tap"));
