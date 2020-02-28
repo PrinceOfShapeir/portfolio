@@ -1,0 +1,6 @@
+function deepcopy(obj) {
+  // Good luck!
+  let output = JSON.stringify(obj);
+  output = JSON.parse(output);
+  return output;
+}
