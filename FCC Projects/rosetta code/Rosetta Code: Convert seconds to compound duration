@@ -12,39 +12,40 @@ function convertSeconds(sec) {
   console.log(week)
 
   while(remainder>0){
-          console.log(remainder);
+         // console.log(remainder);
 
 
   
 
       if(remainder>=week){
-        output = output.concat((remainder - remainder%week).toString()+ " wk,")
+        output = output.concat(
+          ((remainder - remainder%week)/week).toString(), " wk, ")
       remainder = remainder%week;
-      console.log(remainder);
+     // console.log(remainder);
     }
 
       else if(remainder>=day){
-      output = output.concat((remainder -remainder%day).toString(), + " d,");
+      output = output.concat(((remainder -remainder%day)/day).toString(),  " d, ");
       remainder = remainder%day;
-      console.log(remainder);
+     // console.log(remainder);
       }
 
       else if(remainder>=hour){
-        output = output.concat((remainder - remainder%hour).toString()+ " hr,");
+        output = output.concat(((remainder - remainder%hour)/hour).toString(), " hr, ");
         remainder = remainder% hour;
         console.log(remainder);
       }
 
         else if(remainder>=minute){
-        output = output.concat((remainder - remainder%minute).toString() + " min,");
+        output = output.concat(((remainder - remainder%minute)/minute).toString(), " min, ");
         remainder = remainder%minute;
-        console.log(remainder);
+       // console.log(remainder);
         }
 
-        else if(remainder>0){
-          output.concat((remainder).toString() + " sec,");
+        else if(remainder>=second){
+          output = output.concat((remainder).toString(), " sec, ");
           remainder = 0;
-          console.log(remainder);
+        console.log("seconds");
         }
 
 
@@ -55,12 +56,13 @@ function convertSeconds(sec) {
 
 
   
-//remove trailing comma
+//remove trailing comma and space
+  output = output.slice(0,-1);
   output = output.slice(0,-1);
 
   // seconds in week 604800
   
   return output;
 }
-console.log(convertSeconds(7259));
+console.log(convertSeconds(86400));
 //console.log(4%5)
