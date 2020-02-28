@@ -1,0 +1,10 @@
+function sumsq(array) {
+  // Good luck!
+  let sum = 0;
+
+  for(let i in array){
+
+    sum += array[i]*array[i];
+  }
+return sum
+}
