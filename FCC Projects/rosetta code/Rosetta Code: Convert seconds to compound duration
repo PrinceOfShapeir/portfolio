@@ -14,50 +14,47 @@ function convertSeconds(sec) {
   while(remainder>0){
           console.log(remainder);
 
-break;
-    switch(remainder){
 
-      case(remainder%week>=0):
+  
+
+      if(remainder>=week){
         output = output.concat((remainder - remainder%week).toString()+ " wk,")
       remainder = remainder%week;
       console.log(remainder);
-      break;
+    }
 
-      case (remainder%day>=0):
+      else if(remainder>=day){
       output = output.concat((remainder -remainder%day).toString(), + " d,");
       remainder = remainder%day;
       console.log(remainder);
-      break;
+      }
 
-      case (remainder%hour>=0):
+      else if(remainder>=hour){
         output = output.concat((remainder - remainder%hour).toString()+ " hr,");
         remainder = remainder% hour;
         console.log(remainder);
-        break;
+      }
 
-        case(remainder%minute>=0):
+        else if(remainder>=minute){
         output = output.concat((remainder - remainder%minute).toString() + " min,");
         remainder = remainder%minute;
         console.log(remainder);
-        break;
+        }
 
-        case (remainder>0):
+        else if(remainder>0){
           output.concat((remainder).toString() + " sec,");
           remainder = 0;
           console.log(remainder);
-          break;
+        }
 
-        default:
-        console.log("what");
-        console.log(remainder);
-        break;
+
 
       console.log(remainder);
 
     }
 
 
-  }
+  
 //remove trailing comma
   output = output.slice(0,-1);
 
@@ -65,4 +62,5 @@ break;
   
   return output;
 }
-convertSeconds(999999);
+console.log(convertSeconds(7259));
+//console.log(4%5)
