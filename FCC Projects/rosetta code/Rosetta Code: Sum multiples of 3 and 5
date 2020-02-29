@@ -1,0 +1,32 @@
+function sumMults(n) {
+  // gathers the highest valid multiple, and then simply sums and subtracts by the given number
+  // collisions will occur, but are minor and filtered out
+
+  let sum = 0;
+
+  let fives = n - n % 5;
+ // console.log(fives);
+  let threes = n - n % 3;
+ // console.log(threes);
+ 
+
+  for(let i = fives; i>0; i-=5){
+
+    if(i%3!=0&&n!=i){
+      sum += i;
+    }
+
+  }
+
+  for(let i = threes; i>0; i-=3){
+    if(n!=i){
+    sum += i;
+    }
+  }
+
+
+
+return sum;
+}
+
+console.log(sumMults(10));
