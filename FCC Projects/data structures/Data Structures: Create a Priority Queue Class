@@ -1,3 +1,4 @@
+
 function PriorityQueue () {
     this.collection = [];
     this.printCollection = function() {
@@ -15,38 +16,50 @@ function PriorityQueue () {
     return this.collection[0]===undefined;
   }
   this.enqueue = function(item){
-// /this.collection[Math.floor(this.collection.length/2)][1])
-    if(item[1]<=5){
-      for(let i = 0;i<this.collection.length;i++){
-        if(this.collection[i][1]>=item[1]){
-          this.collection.splice(i,0,item);
-          return;
+    
+        if(this.collection.length==0){
+        this.collection.push(item);
+        //console.log("this");
+        return;
         }
-      }
+    for(let i in this.collection){
+
+    
+
+      //reached the end of the array probably
+
       
 
-    }//this.collection[Math.floor(this.collection.length/2)][1])
-    else if(item[1]>=5){
-
-      for(let i = this.collection.length-1; i>0;i--){
-
-  if(this.collection[i][1]<=item[i]){
-    this.collection.splice(i,0,item);
-    return;
-  }
+      if(item[1]<=this.collection[i][1]){
+          this.collection.splice(i,0,item);
+          //console.log("this");
+          return;
       }
+          else if(this.collection[i+1]==undefined){
+        this.collection.push(item);
+        console.log("this");
+        return;
+      }
+      //else console.log(this.collection[i]);
 
+
+    
     }
+    //this.collection.push(item);
 
   }
   this.dequeue = function(){
-    return this.collection.shift();
+    //return this.collection;
+    return this.collection.shift()[0];
   }
     // Only change code above this line
 }
 
-let q = new PriorityQueue;
-console.log(q.size());
-q.enqueue(["Asdas", 1]);
-q.enqueue(["dsgfbd", 2]);
-console.log(q.dequeue())
+let a = new PriorityQueue;
+
+a.enqueue(["a", 2]);
+a.enqueue(["a", 2]);
+a.enqueue(["b", 3]);
+a.enqueue(["c", 1]);
+a.printCollection();
+console.log(a.dequeue());
