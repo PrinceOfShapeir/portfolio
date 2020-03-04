@@ -30,7 +30,7 @@ function PriorityQueue () {
 
       
 
-      if(item[1]<=this.collection[i][1]){
+      if(item[1]<this.collection[i][1]){
           this.collection.splice(i,0,item);
           //console.log("this");
           return;
