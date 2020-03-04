@@ -1,4 +1,4 @@
-
+//currently working
 function PriorityQueue () {
     this.collection = [];
     this.printCollection = function() {
