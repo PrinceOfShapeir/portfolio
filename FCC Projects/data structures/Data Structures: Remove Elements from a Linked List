@@ -1,0 +1,67 @@
+function LinkedList() {
+  var length = 0;
+  var head = null;
+
+  var Node = function(element){
+    this.element = element;
+    this.next = null;
+  };
+
+  this.size = function(){
+    return length;
+  };
+
+  this.head = function(){
+    return head;
+  };
+
+  this.add = function(element){
+    var node = new Node(element);
+    if(head === null){
+        head = node;
+    } else {
+        var currentNode = head;
+
+        while(currentNode.next){
+            currentNode  = currentNode.next;
+        }
+
+        currentNode.next = node;
+    }
+
+    length++;
+  };
+
+  this.remove = function(element){
+    // Only change code below this line
+    length -= 1;
+
+    let node = head;
+    if(!node){
+      return false;
+    }
+    else {
+      let found = false;
+      let previous = null;
+      while(!found){
+      if(node.element===element){
+        //non head case
+        found = true;
+        if(previous){
+          previous.next = node.next;
+        }//head case
+        else head = head.next;
+      }
+
+      if(!node.next){
+        return false;
+      }
+
+      previous = node;
+      node = node.next;
+      }
+    }
+
+    // Only change code above this line
+  };
+}
