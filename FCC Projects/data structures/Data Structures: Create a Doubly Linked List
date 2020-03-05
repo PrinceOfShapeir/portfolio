@@ -1,0 +1,86 @@
+var Node = function(data, prev) {
+  this.data = data;
+  this.prev = prev;
+  this.next = null;
+};
+var DoublyLinkedList = function() {
+  this.head = null;
+  this.tail = null;
+  // change code below this line
+  this.add = (element)=>{
+    if(!this.head){
+      this.head = new Node(element, null);
+      this.tail = this.head;
+    }
+    else if(this.head===this.tail){
+      this.tail= new Node(element, this.head);
+      this.head.next=this.tail;
+    }
+    else {
+      this.tail.next = new Node(element, this.tail);
+      this.tail = this.tail.next;
+
+    }
+  }
+
+  this.remove = (element)=>{
+
+    if(!this.head){//empty
+      return null;
+    }//size of one
+    else if(this.head===this.tail){
+      this.head = null;
+      this.tail = null;
+      return;
+    }//list>1
+    else {
+      //would have written an alternating front/back checker to go from both ends at once, but since it looks for ALL occurrences, there is no time savings. It would work if it returned after a single match.
+      let node = this.head;
+      let done = false;
+      while(!done){
+
+        if(node.element===element){
+          if(node===this.head){
+            this.head = this.head.next;
+            this.head.previous = null;
+            console.log("removing the head");
+          }
+          else if(node===this.tail){
+            this.tail.previous.next = null;
+            this.tail = this.tail.previous;
+            console.log("removing the tail");
+          }
+          else{
+
+            node.previous.next = node.next;
+            node.next.previous = node.previous;
+          }
+
+
+
+
+        }
+        else if(node.next){
+          node = node.next;
+        }
+        else done = true;
+
+      }
+
+
+
+
+    }
+
+
+
+  }
+  // change code above this line
+};
+
+
+let a = new DoublyLinkedList;
+a.add("a");
+a.add("b");
+a.add("c");
+console.log(a.remove("c"));
