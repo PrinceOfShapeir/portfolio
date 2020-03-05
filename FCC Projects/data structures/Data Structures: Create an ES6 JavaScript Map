@@ -1,0 +1,3 @@
+// change code below this line
+var myMap = new Map;
+myMap.set("freeCodeCamp", "Awesome!")
