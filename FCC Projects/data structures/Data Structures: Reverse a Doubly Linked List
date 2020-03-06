@@ -30,26 +30,28 @@ var DoublyLinkedList = function() {
     }
 
     
-    let node = this.tail;
+
     let reverser = (node)=>{
       if(node.prev === null){
       node.prev = node.next;
       node.next = node.prev;
       this.tail = node;
+      console.log("changing tail to " + node.data);
       return;
       }
       else{
       let newNode = node.prev;
       node.prev = node.next;
       node.next = node.prev;
-      if(node.data = this.tail.data){
+      if(node.data===this.tail.data){
         this.head = node;
+        console.log("changing head to " + node.data)
       }
-      return reverser(node);
+      return reverser(newNode);
       }
     };
 
-    reverser(node);
+    reverser(this.tail);
 
 
   }
@@ -64,3 +66,4 @@ a.add("a");
 a.add("b");
 a.add("c");
 a.reverse();
+
