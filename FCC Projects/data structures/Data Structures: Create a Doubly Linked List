@@ -10,9 +10,9 @@ var DoublyLinkedList = function() {
   this.add = (element)=>{
     if(!this.head){
       this.head = new Node(element, null);
-      this.tail = this.head;
+      this.tail = null;
     }
-    else if(this.head===this.tail){
+    else if(!this.tail){
       this.tail= new Node(element, this.head);
       this.head.next=this.tail;
     }
@@ -37,30 +37,32 @@ var DoublyLinkedList = function() {
       //would have written an alternating front/back checker to go from both ends at once, but since it looks for ALL occurrences, there is no time savings. It would work if it returned after a single match.
       let node = this.head;
       let done = false;
+      //console.log(this.tail)
+      //console.log(this.tail.prev.data);
       while(!done){
 
-        if(node.element===element){
+        if(node.data===element){
           if(node===this.head){
             this.head = this.head.next;
-            this.head.previous = null;
-            console.log("removing the head");
+            this.head.prev = null;
+            //console.log("removing the head");
           }
           else if(node===this.tail){
-            this.tail.previous.next = null;
-            this.tail = this.tail.previous;
-            console.log("removing the tail");
+            this.tail.prev.next = null;//here is the error?
+            this.tail = this.tail.prev;
+            //console.log("removing the tail");
           }
           else{
 
-            node.previous.next = node.next;
-            node.next.previous = node.previous;
+            node.prev.next = node.next;
+            node.next.prev = node.prev;
           }
 
 
 
 
         }
-        else if(node.next){
+        if(node.next){
           node = node.next;
         }
         else done = true;
@@ -78,9 +80,3 @@ var DoublyLinkedList = function() {
   // change code above this line
 };
 
-
-let a = new DoublyLinkedList;
-a.add("a");
-a.add("b");
-a.add("c");
-console.log(a.remove("c"));
