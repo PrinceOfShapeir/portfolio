@@ -16,10 +16,10 @@ function BinarySearchTree() {
       if(currentNode.value===element){
         return true;
       }
-      if(currentNode.left){
+      if(element<=currentNode.value&&currentNode.left){
         seek(element,currentNode.left);
       }
-      if(currentNode.right){
+      if(element>=currentNode.value&&currentNode.right){
         seek(element, currentNode.right);
       }
       
