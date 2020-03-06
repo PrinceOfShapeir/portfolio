@@ -12,36 +12,49 @@ var DoublyLinkedList = function() {
       this.head = new Node(data, null);
     }
     else if (!this.tail){
-      this.tail = new Node(data,this.head);
+      this.tail = new Node(data, this.head);
       this.head.next = this.tail;
+      //console.log(this.head)
     }
     else {
-      this.tail.next = new Node(data,this.tail);
+      this.tail.next = new Node(data, this.tail);
       this.tail = this.tail.next;
     }
   }
+
   this.reverse = ()=>{
+
+    //console.log(this)
     if(!this.head){
       return null;
     }
-    else {
-      let done = false;
-      let node = this.tail;
-      while(!done){
-        let newnode = null;
-        if(node.previous){
-          newnode = node.previous;
-        }
-        else {done = true;
-          return "done"}
 
-        [node.next][node.previous]=[node.previous][node.next];//guess this doesn't work
-        node = newnode;
-
+    
+    let node = this.tail;
+    let reverser = (node)=>{
+      if(node.prev === null){
+      node.prev = node.next;
+      node.next = node.prev;
+      this.tail = node;
+      return;
       }
+      else{
+      let newNode = node.prev;
+      node.prev = node.next;
+      node.next = node.prev;
+      if(node.data = this.tail.data){
+        this.head = node;
+      }
+      return reverser(node);
+      }
+    };
 
-    }
+    reverser(node);
+
+
   }
+    
+  
   // change code above this line
 };
 
@@ -50,5 +63,4 @@ let a = new DoublyLinkedList;
 a.add("a");
 a.add("b");
 a.add("c");
-console.log(a.reverse());
-console.log(a.tail)
+a.reverse();
