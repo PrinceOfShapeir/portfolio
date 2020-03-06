@@ -33,9 +33,9 @@ var DoublyLinkedList = function() {
           newnode = node.previous;
         }
         else {done = true;
-          return;}
+          return "done"}
 
-        [node.next][node.previous]=[node.previous][node.next];
+        [node.next][node.previous]=[node.previous][node.next];//guess this doesn't work
         node = newnode;
 
       }
@@ -44,3 +44,11 @@ var DoublyLinkedList = function() {
   }
   // change code above this line
 };
+
+
+let a = new DoublyLinkedList;
+a.add("a");
+a.add("b");
+a.add("c");
+console.log(a.reverse());
+console.log(a.tail)
