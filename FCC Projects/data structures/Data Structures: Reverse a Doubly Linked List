@@ -1,0 +1,46 @@
+var Node = function(data, prev) {
+  this.data = data;
+  this.prev = prev;
+  this.next = null;
+};
+var DoublyLinkedList = function() {
+  this.head = null;
+  this.tail = null;
+  // change code below this line
+  this.add = (data)=>{
+    if(!this.head){
+      this.head = new Node(data, null);
+    }
+    else if (!this.tail){
+      this.tail = new Node(data,this.head);
+      this.head.next = this.tail;
+    }
+    else {
+      this.tail.next = new Node(data,this.tail);
+      this.tail = this.tail.next;
+    }
+  }
+  this.reverse = ()=>{
+    if(!this.head){
+      return null;
+    }
+    else {
+      let done = false;
+      let node = this.tail;
+      while(!done){
+        let newnode = null;
+        if(node.previous){
+          newnode = node.previous;
+        }
+        else {done = true;
+          return;}
+
+        [node.next][node.previous]=[node.previous][node.next];
+        node = newnode;
+
+      }
+
+    }
+  }
+  // change code above this line
+};
