@@ -29,29 +29,29 @@ var DoublyLinkedList = function() {
       return null;
     }
 
-    
+    let node = this.head;
 
     let reverser = (node)=>{
-      if(node.prev === null){
-      node.prev = node.next;
-      node.next = node.prev;
-      this.tail = node;
-      console.log("changing tail to " + node.data);
-      return;
-      }
-      else{
-      let newNode = node.prev;
-      node.prev = node.next;
-      node.next = node.prev;
-      if(node.data===this.tail.data){
-        this.head = node;
-        console.log("changing head to " + node.data)
-      }
-      return reverser(newNode);
-      }
-    };
 
-    reverser(this.tail);
+      let newNode = node.next;
+      node.next = node.prev;
+      node.prev = newNode;
+
+
+      if(!newNode){
+        this.head = node;
+        return 
+      }
+      if(!node.next){
+        this.tail = node;
+      }
+      
+      return reverser(newNode);
+
+
+  }
+
+  reverser(node);
 
 
   }
@@ -66,4 +66,5 @@ a.add("a");
 a.add("b");
 a.add("c");
 a.reverse();
+//console.log(a);
 
