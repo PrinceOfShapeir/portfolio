@@ -10,7 +10,7 @@ function BinarySearchTree() {
 function isBinarySearchTree(tree) {
   // change code below this line
   if(tree.root){
-    if(tree.hasOwnProperty("left")&&tree.hasOwnProperty("right")){
+    if(tree.root.hasOwnProperty("left")&&tree.root.hasOwnProperty("right")){
 
       if(Object.keys(tree).length!=1){
         return false;
