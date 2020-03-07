@@ -1,0 +1,49 @@
+var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
+function Node(value) {
+  this.value = value;
+  this.left = null;
+  this.right = null;
+}
+function BinarySearchTree() {
+  this.root = null;
+}
+function isBinarySearchTree(tree) {
+  // change code below this line
+  if(tree.root){
+    if(tree.hasOwnProperty("left")&&tree.hasOwnProperty("right")){
+
+      if(Object.keys(tree).length!=1){
+        return false;
+      }
+
+      let breaksRules = (node)=>{
+
+        if(node.value){
+          if(node.hasOwnProperty("left")&&node.hasOwnProperty("right")&&Object.keys(node).length!=3){
+            if(node.left){
+              if(node.left.value&&node.left.value<=node.value){
+                breaksRules(node.left);
+              }
+              else return false;
+            }
+            if(node.right){
+              if(node.right.value&&node.right.value>=node.value){
+                breaksRules(node.right);
+              }
+              else return false;
+            }
+          }
+          else return false;
+
+        }
+        else return false;
+
+
+      }
+    
+     return breaksRules(tree.root);
+  }
+  else return false;
+  // change code above this line
+}
+}
