@@ -40,7 +40,7 @@ let nodeChecker = (node)=>{
     return false;}
 
 }
-if(nodeChecker(this.root)!=false){
+if(nodeChecker(tree.root)!=false){
   return true;
 }
 
