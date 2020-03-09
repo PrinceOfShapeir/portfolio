@@ -9,41 +9,41 @@ function BinarySearchTree() {
 }
 function isBinarySearchTree(tree) {
   // change code below this line
-  if(tree.root){
-    if(tree.root.hasOwnProperty("left")&&tree.root.hasOwnProperty("right")){
 
-      if(Object.keys(tree).length!=1){
-        return false;
-      }
-
-      let breaksRules = (node)=>{
-
-        if(node.value){
-          if(node.hasOwnProperty("left")&&node.hasOwnProperty("right")&&Object.keys(node).length!=3){
-            if(node.left){
-              if(node.left.value&&node.left.value<=node.value){
-                breaksRules(node.left);
-              }
-              else return false;
-            }
-            if(node.right){
-              if(node.right.value&&node.right.value>=node.value){
-                breaksRules(node.right);
-              }
-              else return false;
-            }
-          }
-          else return false;
-
-        }
-        else return false;
-
-
-      }
-    
-     return breaksRules(tree.root);
+let isTree = true;
+let nodeChecker = (node)=>{
+  if(Object.keys(node).length!=3){
+    isTree=false;
+    return false;
   }
-  else return false;
-  // change code above this line
+  if(!isTree){
+    return false;
+  }
+  else if(node.value){
+    if(node.left){
+      if(node.left>node.value){
+        isTree = false;
+        return isTree;
+      }
+      else nodeChecker(node.left);
+    }
+    if(node.right){
+      if(node.right<node.value){
+        isTree = false;
+        return isTree;
+      }
+      else nodeChecker(node.right);
+    }
+
+  }
+  else {isTree=false;
+    return false;}
+
 }
+if(nodeChecker(this.root)!=false){
+  return true;
+}
+
+
+  // change code above this line
 }
