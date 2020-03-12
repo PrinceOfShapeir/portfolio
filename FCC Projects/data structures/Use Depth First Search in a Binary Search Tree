@@ -7,7 +7,7 @@ function Node(value) {
 function BinarySearchTree() {
   this.root = null;
   // change code below this line
-  this.inorder = ()=>{
+  this.preorder = ()=>{
 
     if(this.root === null){
       return this.root;
@@ -22,13 +22,12 @@ function BinarySearchTree() {
     let rightTree = [];
     if (node.left){
       leftTree = leftFirst(node.left);
-      console.log(node.left.value);
+
     }
     if(node.right){
       rightTree = leftFirst(node.right);
     }
-    //console.log(leftTree);
-    //console.log(rightTree);
+ 
     return [node.value].concat(leftTree,rightTree);
 
 
@@ -38,12 +37,7 @@ function BinarySearchTree() {
     }
 
 
-  
-
-
-
-
-  this.preorder = ()=>{
+  this.inorder = ()=>{
 
     if(this.root === null){
       return this.root;
@@ -61,12 +55,17 @@ function BinarySearchTree() {
 
 let a = new BinarySearchTree();
 a.root = new Node(1);
+a.root.right = new Node(2);
+a.root.right.left = new Node (1);
+a.root.right.left.left = new Node(0);
+a.root.right.left.right = new Node(2);
+a.root.right.right = new Node (3);
 a.root.left = new Node(0);
 a.root.left.left = new Node(-1);
 a.root.left.right = new Node(1);
 a.root.left.left.left = new Node(-2);
 a.root.left.left.right = new Node(0);
-console.log(a.inorder());
-
+console.log(a.preorder());
+//displayTree(a);
 
 
