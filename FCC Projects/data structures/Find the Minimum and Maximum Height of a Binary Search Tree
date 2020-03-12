@@ -15,10 +15,40 @@ function BinarySearchTree() {
     else if(this.root.left===null&&this.root.left===null){
       return 0;
     }
+    else {
+
+      let min = 99999999;
+      let minimizer = (node, height)=>{
+
+
+        if(!node.left&&!node.right){
+          //is a leaf node
+          
+          if(height<min){
+              min = height;
+            }
+          
+        }
+        else if(height<min){
+          if(node.left){
+            minimizer(node.left, height+1);
+          }
+          if(node.right){
+            minimizer(node.right, height +1);
+          }
+        }
+
+      }
+      minimizer(this.root,0);
+      return min;
+
+
+
+    }
   }
 
 
-  this.findMaxHeight = (=>{
+  this.findMaxHeight = ()=>{
     if(this.root===null){
       return -1;
     }
@@ -27,6 +57,13 @@ function BinarySearchTree() {
     }
 
 
-  })
+  }
   // change code above this line
 }
+
+let a = new BinarySearchTree();
+a.root = new Node(1);
+a.root.left = new Node(0);
+a.root.right = new Node(2);
+a.root.right.right = new Node(3);
+console.log(a.findMinHeight());
