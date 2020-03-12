@@ -17,7 +17,7 @@ function BinarySearchTree() {
     }
     else {
 
-      let min = 99999999;
+      let min = 99999999;//a sufficiently large number
       let minimizer = (node, height)=>{
 
 
@@ -55,8 +55,38 @@ function BinarySearchTree() {
     else if(this.root.left===null&&this.root.left===null){
       return 0;
     }
+    else{
+
+      let max = 0;
+
+      let maximizer = (node, height)=>{
+
+        if(!node.left&&!node.right){
+          //leaf node
+          if(height>max){
+            max = height;
+          }
+        }
+        else {
+          if(node.left){
+            maximizer(node.left, height +1);
+          }
+          if(node.right){
+            maximizer(node.right, height +1);
+          }
+
+        }
+      }
+      maximizer(this.root, 0);
+      return max;
+    }
 
 
+  }
+
+  this.isBalanced = ()=>{
+
+    return this.findMaxHeight()-this.findMinHeight()<=1;
   }
   // change code above this line
 }
