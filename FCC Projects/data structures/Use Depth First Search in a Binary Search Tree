@@ -15,19 +15,20 @@ function BinarySearchTree() {
 
     let leftFirst = (node)=>{
     
-    if(!node.value){
+    if(!node.value===null){
       return [];
     }
-
     let leftTree = [];
     let rightTree = [];
     if (node.left){
       leftTree = leftFirst(node.left);
+      console.log(node.left.value);
     }
     if(node.right){
       rightTree = leftFirst(node.right);
     }
-    console.log(node.value);
+    //console.log(leftTree);
+    //console.log(rightTree);
     return [node.value].concat(leftTree,rightTree);
 
 
