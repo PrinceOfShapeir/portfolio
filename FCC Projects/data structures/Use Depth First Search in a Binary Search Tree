@@ -12,7 +12,37 @@ function BinarySearchTree() {
     if(this.root === null){
       return this.root;
     }
-  }
+
+    let traversals = [];
+    let up = "UP";
+    let down = "DOWN";
+    let left = "LEFT";
+    let right = "RIGHT";
+    let leftFirst = (node, vertical, lastHorizontal)=>{
+
+      if(vertical==="UP"){
+        if(lastHorizontal==="RIGHT"){
+          if(node.right){
+            return leftFirst(node.right, down, left);
+          }
+          else return leftFirst()
+
+        }
+
+
+      }
+
+
+    }
+
+    }
+
+
+  
+
+
+
+
   this.preorder = ()=>{
 
     if(this.root === null){
