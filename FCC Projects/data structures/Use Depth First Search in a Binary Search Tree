@@ -13,27 +13,26 @@ function BinarySearchTree() {
       return this.root;
     }
 
-    let traversals = [];
-    let up = "UP";
-    let down = "DOWN";
-    let left = "LEFT";
-    let right = "RIGHT";
-    let leftFirst = (node, vertical, lastHorizontal)=>{
+    let leftFirst = (node)=>{
+    
+    if(!node.value){
+      return [];
+    }
 
-      if(vertical==="UP"){
-        if(lastHorizontal==="RIGHT"){
-          if(node.right){
-            return leftFirst(node.right, down, left);
-          }
-          else return leftFirst()
-
-        }
-
-
-      }
+    let leftTree = [];
+    let rightTree = [];
+    if (node.left){
+      leftTree = leftFirst(node.left);
+    }
+    if(node.right){
+      rightTree = leftFirst(node.right);
+    }
+    console.log(node.value);
+    return [node.value].concat(leftTree,rightTree);
 
 
     }
+    return leftFirst(this.root);
 
     }
 
@@ -58,3 +57,15 @@ function BinarySearchTree() {
 
   // change code above this line
 }
+
+let a = new BinarySearchTree();
+a.root = new Node(1);
+a.root.left = new Node(0);
+a.root.left.left = new Node(-1);
+a.root.left.right = new Node(1);
+a.root.left.left.left = new Node(-2);
+a.root.left.left.right = new Node(0);
+console.log(a.inorder());
+
+
+
