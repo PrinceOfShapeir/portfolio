@@ -12,13 +12,21 @@ function BinarySearchTree() {
     if(this.root===null){
       return -1;
     }
+    else if(this.root.left===null&&this.root.left===null){
+      return 0;
+    }
   }
+
+
   this.findMaxHeight = (=>{
     if(this.root===null){
       return -1;
     }
+    else if(this.root.left===null&&this.root.left===null){
+      return 0;
+    }
 
-    
+
   })
   // change code above this line
 }
