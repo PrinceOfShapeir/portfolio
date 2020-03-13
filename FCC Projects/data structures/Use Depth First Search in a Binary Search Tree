@@ -42,6 +42,30 @@ function BinarySearchTree() {
     if(this.root === null){
       return this.root;
     }
+
+    let rootFirst = (node)=>{
+      if(!node.value===null){
+       return [];
+    }
+
+      let leftTree = [];
+      let rightTree = [];
+
+      if (node.left){
+        leftTree = rootFirst(node.left);
+
+      }
+      if(node.right){
+      rightTree = rootFirst(node.right);
+      }
+ 
+      return leftTree.concat(node.value, rightTree);
+
+
+    }
+
+    return rootFirst(this.root);
+
   }
 
 
@@ -56,7 +80,7 @@ function BinarySearchTree() {
     if(!node.value===null){
       return [];
     }
-        let leftTree = [];
+    let leftTree = [];
     let rightTree = [];
 
     if (node.left){
