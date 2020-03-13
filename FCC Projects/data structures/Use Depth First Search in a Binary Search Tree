@@ -43,11 +43,36 @@ function BinarySearchTree() {
       return this.root;
     }
   }
+
+
   this.postorder = ()=>{
 
     if(this.root === null){
       return this.root;
     }
+
+    let leafFirst = (node)=>{
+
+    if(!node.value===null){
+      return [];
+    }
+        let leftTree = [];
+    let rightTree = [];
+
+    if (node.left){
+      leftTree = leafFirst(node.left);
+
+    }
+    if(node.right){
+      rightTree = leafFirst(node.right);
+    }
+ 
+    return leftTree.concat(rightTree, node.value);
+
+    }
+
+    return leafFirst(this.root);
+
   }
 
   // change code above this line
