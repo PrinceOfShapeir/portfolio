@@ -15,10 +15,56 @@ function BinarySearchTree() {
   // change code below this line
   this.levelOrder = ()=>{
   
-  noroot();
+  if(noroot()===null){return null;};
 
-  let queue = [];
-  
+function Queue() {
+  var collection = [];
+  this.print = function() {
+    console.log(collection);
+  };
+  // Only change code below this line
+
+  this.enqueue = (element)=>{
+    collection.push(element);
+  }
+  this.dequeue = ()=>{
+   return collection.shift();
+  }
+  this.size = ()=>{
+    return collection.length;
+  }
+  // Only change code above this line
+}
+
+  let leftFirst = (q, output)=>{
+
+    if(q.size<=0){
+      return output;
+    }
+    let a = q.dequeue();
+    
+    if(a===undefined){
+      return output;
+    }
+    if(a.value) {
+      output.push(a.value);}
+    if(a.left){
+      q.enqueue(a.left);
+    }
+    if(a.right){
+      q.enqueue(a.right);
+    }
+
+    return leftFirst(q,output);
+    
+
+
+  }
+
+  let queue = new Queue();
+  queue.enqueue(this.root);
+  //return queue.dequeue();
+  return leftFirst(queue, []);
   
   }
 
@@ -29,3 +75,14 @@ function BinarySearchTree() {
 
   // change code above this line
 }
+
+let g = new BinarySearchTree();
+g.root = new Node(1);
+g.root.right = new Node(2);
+g.root.left = new Node(0);
+g.root.left.right = new Node(1);
+g.root.left.left = new Node(-1);
+g.root.left.left.right = new Node(0);
+g.root.left.left.left = new Node(-2);
+
+console.log(g.levelOrder());
