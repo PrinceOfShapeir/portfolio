@@ -1,3 +1,4 @@
+
 var displayTree = tree => console.log(JSON.stringify(tree, null, 2));
 function Node(value) {
   this.value = value;
@@ -9,7 +10,7 @@ function BinarySearchTree() {
 
   let noroot = ()=>{
       if(this.root===null){
-        return this.root;
+        return null;
       }
   }
   // change code below this line
@@ -22,7 +23,6 @@ function Queue() {
   this.print = function() {
     console.log(collection);
   };
-  // Only change code below this line
 
   this.enqueue = (element)=>{
     collection.push(element);
@@ -46,12 +46,12 @@ function Queue() {
     if(a===undefined){
       return output;
     }
-    if(a.value) {
+    if(a.value!=undefined) {
       output.push(a.value);}
-    if(a.left){
+    if(a.left!=undefined){
       q.enqueue(a.left);
     }
-    if(a.right){
+    if(a.right!=undefined){
       q.enqueue(a.right);
     }
 
@@ -79,10 +79,9 @@ function Queue() {
 let g = new BinarySearchTree();
 g.root = new Node(1);
 g.root.right = new Node(2);
+g.root.right.right = new Node(3);
 g.root.left = new Node(0);
-g.root.left.right = new Node(1);
 g.root.left.left = new Node(-1);
-g.root.left.left.right = new Node(0);
-g.root.left.left.left = new Node(-2);
+g.root.left.right = new Node(1);
 
 console.log(g.levelOrder());
