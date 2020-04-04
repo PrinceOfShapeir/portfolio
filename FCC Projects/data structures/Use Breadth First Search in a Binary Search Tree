@@ -5,19 +5,6 @@ function Node(value) {
   this.left = null;
   this.right = null;
 }
-function BinarySearchTree() {
-  this.root = null;
-
-  let noroot = ()=>{
-      if(this.root===null){
-        return null;
-      }
-  }
-  // change code below this line
-  this.levelOrder = ()=>{
-  
-  if(noroot()===null){return null;};
-
 function Queue() {
   var collection = [];
   this.print = function() {
@@ -33,8 +20,22 @@ function Queue() {
   this.size = ()=>{
     return collection.length;
   }
-  // Only change code above this line
+ 
 }
+function BinarySearchTree() {
+  this.root = null;
+
+  let noroot = ()=>{
+      if(this.root===null){
+        return null;
+      }
+  }
+  // change code below this line
+  this.levelOrder = ()=>{
+  
+  if(noroot()===null){return null;};
+
+
 
   let leftFirst = (q, output)=>{
 
@@ -69,7 +70,38 @@ function Queue() {
   }
 
   this.reverseLevelOrder = ()=>{
-    noroot();
+    if(noroot()===null) return null;
+
+    let rightFirst = (q, output)=>{
+
+    if(q.size<=0){
+      return output;
+    }
+    let a = q.dequeue();
+    
+    if(a===undefined){
+      return output;
+    }
+    if(a.value!=undefined) {
+      output.push(a.value);}
+    if(a.right!=undefined){
+      q.enqueue(a.right);
+    }
+    if(a.left!=undefined){
+      q.enqueue(a.left);
+    }
+
+    return rightFirst(q,output);
+    
+
+
+  }
+
+  let queue = new Queue();
+  queue.enqueue(this.root);
+  //return queue.dequeue();
+  return rightFirst(queue, []);
+
 
   }
 
