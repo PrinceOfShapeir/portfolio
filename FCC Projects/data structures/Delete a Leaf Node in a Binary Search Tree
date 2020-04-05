@@ -1,0 +1,46 @@
+var displayTree = tree => console.log(JSON.stringify(tree, null, 2));
+function Node(value) {
+  this.value = value;
+  this.left = null;
+  this.right = null;
+}
+
+function BinarySearchTree() {
+  this.root = null;
+  // case 1: target has no children, change code below this line
+  this.remove = (child)=>{
+
+
+    //search for parent ref
+    let parent = null;//init to null
+    parent = (search = (node, child)=>{
+
+      if(node.left===child){
+        return node.left;
+      }
+      else if (node.right ===child){
+        return node.right;
+      }
+      if(node.left){
+        search(node.left,child);
+      }
+      if(node.right){
+        search(node.right,child);
+      }
+
+      
+
+    })(this.root, child);
+    //case root
+                  
+    if(parent === null){
+
+      child = null;
+    }
+    //left case
+    else if(parent.left === null && parent.right === null){
+      parent = null;
+    }
+
+  }
+}
