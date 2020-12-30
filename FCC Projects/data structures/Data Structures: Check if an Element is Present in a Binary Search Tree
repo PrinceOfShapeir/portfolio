@@ -6,34 +6,21 @@ function Node(value) {
 }
 function BinarySearchTree() {
   this.root = null;
-  // change code below this line
-  this.isPresent = (element)=>{
-    if(!this.root){
-      return false;
-    }
-    else {
-      let seek = (element, currentNode)=>{
-        if(element===currentNode.value){
-          return true;
-        }
-        else if(element<=currentNode.value){
-          if(currentNode.left){
-            return seek(element, currentNode.left);
-          }
-          else return false;
-        }
-        else if(element>=currentNode.value){
-          if(currentNode.right){
-            return seek(element, currentNode.right);
-          }
-          else return false;
-        }
+  // Only change code below this line
+  this.isPresent = (item) => {
 
-      }
-      return seek(element, this.root);
+    function itemFinder (node, direction) {
 
+      if(!node[direction]||node[direction].value===null) return false;
+      else if(node[direction].value===item) return true;
+      else if(node[direction].value<item) return itemFinder(node[direction], 'right');
+      else if(node[direction].value>item) return itemFinder(node[direction], 'left');
+      else return console.log("error, item neither greater, equal, or less than.");
     }
 
+    if(!this.root) return false;
+    else return itemFinder(this, 'root');
   }
-  // change code above this line
+  
+  // Only change code above this line
 }
