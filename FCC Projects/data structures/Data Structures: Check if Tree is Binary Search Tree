@@ -8,42 +8,29 @@ function BinarySearchTree() {
   this.root = null;
 }
 function isBinarySearchTree(tree) {
-  // change code below this line
+  // Only change code below this line
+  function isBinarySearchNode(node){
+    if(node&&node.value){
 
-let isTree = true;
-let nodeChecker = (node)=>{
-  if(Object.keys(node).length!=3){
-    isTree=false;
-    return false;
-  }
-  if(!isTree){
-    return false;
-  }
-  else if(node.value){
-    if(node.left){
-      if(node.left>node.value){
-        isTree = false;
-        return isTree;
+
+      function directionChecker(direction){
+        if(node[direction]===null) return true; //found the end
+        if(direction === 'left' && node[direction]>node.value) return false;
+        if(direction === 'right' && node[direction]<node.value) return false;
+        return isBinarySearchNode(node[direction].left) && isBinarySearchNode(node[direction].right) ;
       }
-      else nodeChecker(node.left);
-    }
-    if(node.right){
-      if(node.right<node.value){
-        isTree = false;
-        return isTree;
-      }
-      else nodeChecker(node.right);
-    }
+      if(Object.keys(node).length>3) return false;
 
+      else return directionChecker('left') && directionChecker('right');
+    } else return true; //null values indicate no conflict 
   }
-  else {isTree=false;
-    return false;}
-
-}
-if(nodeChecker(tree.root)!=false){
-  return true;
+  return isBinarySearchNode(tree.root);
+  // Only change code above this line
 }
 
-
-  // change code above this line
-}
+/*
+let a = new BinarySearchTree();
+console.log(a);
+a.root = new Node(6);
+a.root.left = new Node(5);
+console.log(isBinarySearchTree(a));*/
