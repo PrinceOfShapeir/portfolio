@@ -1,0 +1,18 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var thirdMax = function(nums) {
+
+    let newNums = nums.sort((a,b)=>b-a);
+    
+    for(let i= 0, last = null, count = 0; i<newNums.length;i++){
+    
+        if(newNums[i]!==last) count++;
+        if(count>=3) return newNums[i];
+        last = newNums[i];
+    }
+    return Math.max(...newNums);
+    
+    
+};
