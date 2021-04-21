@@ -1,6 +1,7 @@
 /**
  * @param {number} n
  * @return {number}
+ https://leetcode.com/problems/nth-digit/
  */
 var findNthDigit = function(n) {
     
