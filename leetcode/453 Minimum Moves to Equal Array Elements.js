@@ -1,6 +1,7 @@
 /**
  * @param {number[]} nums
  * @return {number}
+ https://leetcode.com/problems/minimum-moves-to-equal-array-elements/
  */
 
 function equalityChecker (array) {
