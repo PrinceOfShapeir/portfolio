@@ -1,6 +1,7 @@
 /**
  * @param {number[][]} points
  * @return {boolean}
+ https://leetcode.com/submissions/detail/482745249/
  */
 var isBoomerang = function(points) {
     
