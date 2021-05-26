@@ -12,33 +12,13 @@
  */
 var hasCycle = function(head) {
     
-    let touchedSet = new Map();
-    
-    let node = head;
-    
+
     try {JSON.stringify(head)} 
     catch (err) {
         return true;
     }
     
     return false;
-    /*
-    while(node){
-        
-        if (touchedSet.has(node.val)) {
-            
-            
-            
-            return true;
-        }
-        else touchedSet.set(node.val, {hash: JSON.stringify()});       
-        node = node.next;
-        
-    }   return false;
-    
-    */
-    
-    
-    
+     
     
 };
