@@ -1,0 +1,44 @@
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+var hasCycle = function(head) {
+    
+    let touchedSet = new Map();
+    
+    let node = head;
+    
+    try {JSON.stringify(head)} 
+    catch (err) {
+        return true;
+    }
+    
+    return false;
+    /*
+    while(node){
+        
+        if (touchedSet.has(node.val)) {
+            
+            
+            
+            return true;
+        }
+        else touchedSet.set(node.val, {hash: JSON.stringify()});       
+        node = node.next;
+        
+    }   return false;
+    
+    */
+    
+    
+    
+    
+};
