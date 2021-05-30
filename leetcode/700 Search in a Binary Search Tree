@@ -5,6 +5,7 @@
  *     this.left = (left===undefined ? null : left)
  *     this.right = (right===undefined ? null : right)
  * }
+ https://leetcode.com/submissions/detail/499938336/
  */
 /**
  * @param {TreeNode} root
