@@ -1,0 +1,38 @@
+//this takes the existing algorithm for level order traversal and reverses it
+//it's possible to do this directly, but it would require a rewrite of working code
+//Going in order the first time let's us write idempotent code, as index 0 will always refer to the same location.
+//in reverse order we can't make that assumption, as every new index causes a rightward shift of the entire output
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[][]}
+ */
+var levelOrderBottom = function(root) {
+    let output = [];
+        
+    function leveler (node, level = 0){
+        
+        if(!node) return;
+    
+    if(output[level]===undefined) {
+        
+        output[level] = [node.val];
+    } else output[level] = [...output[level], node.val];
+        
+    return leveler(node.left, level +1), leveler(node.right, level+1);          
+    }
+
+    leveler(root);
+
+    return output.reverse();
+    
+    
+};
