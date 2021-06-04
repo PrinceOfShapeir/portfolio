@@ -1,0 +1,20 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isPalindrome = function(s) {
+    let newString = "";
+    let regs = /[a-zA-Z\d]/;
+    for(let i in s){
+        if(regs.test(s[i])) newString += s[i].toUpperCase();      
+        
+    }
+    
+    for(let i in newString){
+        if(newString[i]!==newString[newString.length-1-i]) return false;
+    }
+    console.log(newString);
+    return true;
+    
+    
+};
