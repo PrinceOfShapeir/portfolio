@@ -1,3 +1,4 @@
+  
 /**
  * @param {string} s
  * @return {boolean}
@@ -10,8 +11,10 @@ var isPalindrome = function(s) {
         
     }
     
-    for(let i in newString){
-        if(newString[i]!==newString[newString.length-1-i]) return false;
+    for(let i = 0; i< 1 + newString.length/2;i++){
+        if(newString[i]!==newString[newString.length-1-i]){
+            return false;
+        } 
     }
     console.log(newString);
     return true;
