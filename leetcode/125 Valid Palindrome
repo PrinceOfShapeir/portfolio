@@ -2,6 +2,7 @@
 /**
  * @param {string} s
  * @return {boolean}
+ https://leetcode.com/submissions/detail/503457196/
  */
 var isPalindrome = function(s) {
     let newString = "";
