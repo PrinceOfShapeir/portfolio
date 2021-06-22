@@ -1,0 +1,51 @@
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var bulbSwitch = function(n) {
+    
+    if(n===0) return 0;
+    
+    let output = [];
+    
+    for(let i = 0; i<n; i++){
+        
+        if (i===0){
+            
+            for(let j = 0; j<n; j++){
+                output.push(true);
+            }
+        }
+        else if(i + 1 === n){
+            
+            output[i] = !output[i]
+            
+        }
+        
+        else {
+            
+            for(let j = i; j<n; j+=i+1) {
+                
+                //if((j+1)%(i+1)===0){
+                    //matches an i
+                if(j!=0) output[j] = !output[j];
+
+                //}
+                
+            }
+        }
+        
+        //console.log(output);
+        
+        
+    }
+        
+        let result = 0;
+        for(let i of output){
+            
+            if(i) result ++;
+        }
+    
+        return result;
+    
+};
