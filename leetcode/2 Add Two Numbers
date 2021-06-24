@@ -16,7 +16,7 @@ var addTwoNumbers = function(l1, l2) {
     
     function reader (list, output = "") {
         
-        if(!list||!list.val) {
+        if(!list||list.val===null) {
             
             return output;
             
@@ -31,9 +31,9 @@ var addTwoNumbers = function(l1, l2) {
     }
     
     
-    let number1 = Number(reader(l1));
+    let number1 = BigInt(reader(l1));
     console.log(number1);
-    let number2 = Number(reader(l2));
+    let number2 = BigInt(reader(l2));
     console.log(number2);
     return listOutputter((number1+number2).toString().split("").reverse().join(""));
     
