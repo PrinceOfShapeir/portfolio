@@ -3,19 +3,19 @@
  */
 var SeatManager = function(n) {
     
-    this.unreserved = new Array(n).fill(0).map((curr, index)=>index+1)
-    this.reserved = [];
+    this.unreserved = [...Array(n+1).keys()]
+    this.reserved = Array(n);
+    this.unreserved.shift();
 };
 
 /**
  * @return {number}
  */
 SeatManager.prototype.reserve = function() {
+    let seat = this.unreserved.shift();
+    this.reserved[seat-1] = seat;
     //console.log(this.unreserved);
-    this.reserved.push(this.unreserved.shift());
-    //console.log(this.reserved);
-    return this.reserved[this.reserved.length-1];
-
+    return seat;
 };
 
 /** 
@@ -24,55 +24,11 @@ SeatManager.prototype.reserve = function() {
  */
 SeatManager.prototype.unreserve = function(seatNumber) {
     
-   
-    let reservation = this.reserved.splice(this.reserved.indexOf(seatNumber), 1)[0];
-    
-    if(this.unreserved.length<1) {
-        this.unreserved.push(reservation);
-        return this.unreserved;
-    }
-    
-    
-    let upper = this.unreserved.length-1;
-    let lower = 0;
-    
-    while(upper-lower>0){
-            //console.log(this.unreserved)
-            //console.log(upper)
-            //console.log(lower)
-            let midpoint = Math.floor((upper - lower)/2);
-            //console.log(midpoint)
-            if(this.unreserved[midpoint]-1===reservation) {
-                
-                this.unreserved.splice(midpoint, 0, reservation);
-                return this.unreserved;
-            
-            } else if (this.unreserved[midpoint]+1===reservation){
-                this.unreserved.splice(midpoint+1, 0, reservation);
-                return this.unreserved;
-            }
-            
-            if(this.unreserved[midpoint]<reservation) lower = midpoint;
-            else if (this.unreserved[midpoint]>reservation) upper = midpoint;
-            //console.log(midpoint);
-
-           
+    this.reserved[seatNumber-1] = undefined;
           
-          }
+    this.unreserved.splice(this.unreserved.findIndex((seat)=>seat>seatNumber), 0, seatNumber);
     
     
-    /*for(let i = 0; i<this.unreserved.length; i++){
-        
-        if(i>=this.unreserved.length||reservation<=this.unreserved[i]){
-            this.unreserved.splice(i, 0, reservation);
-            return this.unreserved;
-        }
-        
-    }*/
-   
-    
-    //return this.unreserved.sort((a,b)=>a-b);
-
 };
 
 /** 
