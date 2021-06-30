@@ -1,0 +1,27 @@
+/**
+ * @param {string[]} products
+ * @param {string} searchWord
+ * @return {string[][]}
+ */
+var suggestedProducts = function(products, searchWord) {
+    
+    function matchPrefix (prefix, word) {
+        
+        let regs = new RegExp('^' + prefix);
+        
+        return regs.test(word);
+        
+    }
+    
+    let output = [];
+    
+    for(let i = 0; i<searchWord.length; i++){
+        let prefix = searchWord.slice(0,i+1);
+        output.push(products.filter(word=>matchPrefix(prefix,word)).sort().slice(0,3));
+        
+    }
+    
+    return output;
+    
+    
+};
