@@ -1,21 +1,25 @@
 /**
  * @param {number} n
+ https://leetcode.com/submissions/detail/515181227/
  */
 var SeatManager = function(n) {
     
-    this.unreserved = [...Array(n+1).keys()]
-    this.reserved = Array(n);
-    this.unreserved.shift();
+    this.reserved = new Set();
+    
+    this.unreserved = [...Array(n+1).keys()];
+    this.unreserved[0] = undefined;
+    
 };
 
 /**
  * @return {number}
  */
 SeatManager.prototype.reserve = function() {
-    let seat = this.unreserved.shift();
-    this.reserved[seat-1] = seat;
-    //console.log(this.unreserved);
+    let seat = this.unreserved.find(a=>a!=undefined)
+    this.reserved.add(seat);
+    this.unreserved[seat] = undefined;
     return seat;
+    
 };
 
 /** 
@@ -23,12 +27,8 @@ SeatManager.prototype.reserve = function() {
  * @return {void}
  */
 SeatManager.prototype.unreserve = function(seatNumber) {
-    
-    this.reserved[seatNumber-1] = undefined;
-          
-    this.unreserved.splice(this.unreserved.findIndex((seat)=>seat>seatNumber), 0, seatNumber);
-    
-    
+    this.reserved.delete(seatNumber);
+    this.unreserved[seatNumber] = seatNumber;
 };
 
 /** 
