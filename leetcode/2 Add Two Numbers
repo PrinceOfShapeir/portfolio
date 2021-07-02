@@ -4,6 +4,7 @@
  *     this.val = (val===undefined ? 0 : val)
  *     this.next = (next===undefined ? null : next)
  * }
+https://leetcode.com/submissions/detail/512304996/
  */
 /**
  * @param {ListNode} l1
