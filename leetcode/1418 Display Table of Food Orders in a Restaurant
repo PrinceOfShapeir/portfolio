@@ -1,0 +1,75 @@
+/**
+ * @param {string[][]} orders
+ * @return {string[][]}
+ */
+var displayTable = function(orders) {
+    
+    let foodItems = new Set();
+    
+    /*
+        {name: index}
+    */
+    let tables = new Map();
+    /*
+        {tblNumber: [...items]}
+    */
+    //1. sort the orders in increasing order.
+    
+    orders.forEach(item=>{
+        if(!foodItems.has(item[2])) {
+            foodItems.add(item[2])
+        }
+    });
+    
+    foodItems = new Set(Array.from(foodItems).sort());
+    
+    orders.sort((a,b)=>a[1]-b[1]);
+    
+    
+    
+    //2. iterate through orders
+    console.log(foodItems);
+    for(let i in orders){
+        //initialize tables
+        if (!tables.has(orders[i][1])) {
+            tables.set(orders[i][1], Array(foodItems.size).fill(0));
+        }
+
+        //get index of current item
+       
+        let index = Array.from(foodItems).reduce((acc,val, index)=>{
+            if(val == orders[i][2]) return index;
+            else return acc;
+        }, 0)
+        //add 1 to the table by index
+        tables.set(orders[i][1], ( () => { 
+        
+            let table = tables.get(orders[i][1]);
+            
+            table[index] = table[index] +1
+
+            return table; 
+        })());
+    }
+    
+    let output = [["Table", ...foodItems.keys()]];
+    
+    //dont forget to pad the tables array with 0s
+    
+    for(let i of tables){
+        
+        let itemsToPush = i[1];
+        for(let i = 0; i<foodItems.size; i++)
+        {
+            if(!itemsToPush[i]) {
+                itemsToPush[i] = 0;
+            } 
+            
+        }
+        output.push([i[0], ...itemsToPush.map(a=>a.toString())]);
+    }
+    
+    return output;
+    
+    
+};
