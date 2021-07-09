@@ -1,6 +1,7 @@
 /**
  * @param {string[][]} orders
  * @return {string[][]}
+ https://leetcode.com/submissions/detail/518383473/
  */
 var displayTable = function(orders) {
     
