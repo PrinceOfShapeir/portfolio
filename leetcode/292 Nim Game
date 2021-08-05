@@ -1,0 +1,14 @@
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var canWinNim = function(n) {
+    
+    
+    //Solved by whiteboarding
+    //The solution is to always leave your opponent with a multiple of four. There is no optimal way to escape from a multiple of four, as all possible returns, leave a remainder less than or equal to the three
+    
+    if(n%4===0) return false;
+    else return true;
+   
+};
