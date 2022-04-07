@@ -1,0 +1,27 @@
+https://leetcode.com/submissions/detail/675795918/
+
+//two sum O(n) solution using map.
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    
+    let complements = new Map();
+    
+    for(let i in nums){
+        let complement = target-nums[i];
+        if(complements.has(complement)) {
+           
+           //match was found, done
+            return [i, complements.get(complement)];
+            
+        } else {
+        
+                //building the index
+                complements.set(nums[i], i)
+        }
+    }
+};
