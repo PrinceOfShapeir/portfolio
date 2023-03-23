@@ -1,0 +1,22 @@
+https://leetcode.com/problems/reverse-integer/submissions/920972219/
+//runtime 67ms beats 84% of submissions
+
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var reverse = function(x) {
+    
+    let newX = x.toString().split("");
+    //intentionally not using reverse()
+    newX = parseInt(newX.reduceRight((output, curr)=> output.concat(curr))) * Math.sign(x);
+
+    return rangeCheck(newX) ? newX : 0;
+
+};
+
+function rangeCheck (num) {
+
+    return (num>(-2)**31 && num<2**31) ? true : false;
+
+}
