@@ -1,0 +1,15 @@
+/**
+Task: Remove duplicates without creating a new array.
+https://leetcode.com/problems/remove-duplicates-from-sorted-array/submissions/922622288/
+ * @param {number[]} nums
+ * @return {number}
+ */
+var removeDuplicates = function(nums) {
+    
+    for(let i = 0; i<nums.length-1; i++){
+        while(nums[i]===nums[i+1]){
+            nums.splice(i,1);
+        }
+    }
+
+};
